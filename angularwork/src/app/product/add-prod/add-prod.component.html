@@ -1,0 +1,71 @@
+<div class="d-flex justify-content-between">
+    <h4>Add New Product</h4>
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div style="overflow: auto;height:450px;">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Item ID</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="itemId" #itemId="ngModel" [(ngModel)]="service.formData.ItemID"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="itemId.invalid && itemId.touched">
+            Please Enter Item ID
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">ProductName</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="productName" #productName="ngModel" [(ngModel)]="service.formData.ProductName"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="productName.invalid && productName.touched">
+            Please Enter ProductName
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Department</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="department" #department="ngModel" [(ngModel)]="service.formData.Department"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="department.invalid && department.touched">
+            Please Enter Department
+        </div>
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Price</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="price" #price="ngModel" [(ngModel)]="service.formData.Price"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="price.invalid && price.touched">
+            Please Enter Price
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Quantity</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="quantity" #quantity="ngModel" [(ngModel)]="service.formData.Quantity"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="quantity.invalid && quantity.touched">
+            Please Enter Quantity
+        </div>
+        <div>
+            <button class="mt-4" mat-raised-button color="priamry" type="submit"
+            [disabled]="form.invalid">
+                Add Product
+            </button>
+        </div>
+    </form>
+</div>
+

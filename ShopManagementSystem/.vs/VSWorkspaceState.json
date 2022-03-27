@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ShopManagementSystem.WebApi",
+    "\\ShopManagementSystem.WebApi\\Controllers",
+    "\\ShopManagementSystem.WebApi\\Models",
+    "\\ShopManagementSystem.WebApi\\Repositories"
+  ],
+  "SelectedNode": "\\ShopManagementSystem.WebApi\\Controllers\\EmployeeController.cs",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-between">
+    <h4>Add New Product</h4>
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div style="overflow: auto;height:450px;">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">ProductID</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="productId" #productId="ngModel" [(ngModel)]="service.formData.ProductID"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="productId.invalid && productId.touched">
+            Please Enter productId
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">ProductName</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="productName" #productName="ngModel" [(ngModel)]="service.formData.ProductName"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="productName.invalid && productName.touched">
+            Please Enter ProductName
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">HSNnumber</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="hsnnumber" #hsnnumber="ngModel" [(ngModel)]="service.formData.HSNnumber"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="hsnnumber.invalid && hsnnumber.touched">
+            Please Enter hSNnumber
+        </div>
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Quantity</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="quantity" #quantity="ngModel" [(ngModel)]="service.formData.Quantity"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="quantity.invalid && quantity.touched">
+            Please Enter quantity
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">SalePrice</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="salePrice" #salePrice="ngModel" [(ngModel)]="service.formData.SalePrice"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="salePrice.invalid && salePrice.touched">
+            Please Enter salePrice
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">GST</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="gST" #gt="ngModel" [(ngModel)]="service.formData.GST"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="gt.invalid && gt.touched">
+            Please Enter GST
+        </div>
+        <div>
+            <button class="mt-4" mat-raised-button color="priamry" type="submit"
+            [disabled]="form.invalid">
+                Add SalesProduct
+            </button>
+        </div>
+    </form>
+</div>
+

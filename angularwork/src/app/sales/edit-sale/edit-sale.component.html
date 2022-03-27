@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-between m-3" >
+    <h4>Edit Sales</h4>
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div style="overflow: auto;height:450px;">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">CustomerID</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" placeholder="Enter the CustomerID" 
+            name="customerId" #customerId="ngModel" [(ngModel)]="service.formData.CustomerID"> 
+        </div>
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Product Name</span>
+            </div>
+            <input redonly="readonly" type="text" class="form-control" 
+            name="ProductName" #ProductName="ngModel" [(ngModel)]="service.formData.ProductName"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="ProductName.invalid && ProductName.touched">
+            Please Enter Product Name
+        </div>
+
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Quantity</span>
+            </div>
+            <input redonly="readonly" type="text" class="form-control" 
+            name="Quantity" #Quantity="ngModel" [(ngModel)]="service.formData.Quantity"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="Quantity.invalid && Quantity.touched">
+            Please Enter Quantity
+        </div>
+
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Bill</span>
+            </div>
+            <input redonly="readonly" type="text" class="form-control" 
+            name="Bill" #Bill="ngModel" [(ngModel)]="service.formData.Bill"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="Bill.invalid && Bill.touched">
+            Please Enter Bill
+        </div>
+
+
+        <div>
+            <button class="m-3" mat-raised-button color="priamry" type="submit"
+            [disabled]="form.invalid">
+                Update Sale
+            </button>
+        </div>
+    </form>
+</div>

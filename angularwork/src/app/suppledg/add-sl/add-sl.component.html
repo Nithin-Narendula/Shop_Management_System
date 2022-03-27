@@ -1,0 +1,71 @@
+<div class="d-flex justify-content-between">
+    <h4>Add New Ledger</h4>
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div style="overflow: auto;height:450px;">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Invoice ID</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="invoiceId" #invoiceId="ngModel" [(ngModel)]="service.formData.InvoiceID"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="invoiceId.invalid && invoiceId.touched">
+            Please Enter invoice ID
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">GrandTotalAmount</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="grandTotalAmount" #grandTotalAmount="ngModel" [(ngModel)]="service.formData.GrandTotalAmount"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="grandTotalAmount.invalid && grandTotalAmount.touched">
+            Please Enter GrandTotalAmount
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">PaidAmount</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="paidAmount" #paidAmount="ngModel" [(ngModel)]="service.formData.PaidAmount"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="paidAmount.invalid && paidAmount.touched">
+            Please Enter PaidAmount
+        </div>
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">DueAmount</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="dueAmount" #dueAmount="ngModel" [(ngModel)]="service.formData.DueAmount"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="dueAmount.invalid && dueAmount.touched">
+            Please Enter DueAmount
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">BalanceAmount</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="balanceAmount" #balanceAmount="ngModel" [(ngModel)]="service.formData.BalanceAmount"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="balanceAmount.invalid && balanceAmount.touched">
+            Please Enter BalanceAmount
+        </div>
+        <div>
+            <button class="mt-4" mat-raised-button color="priamry" type="submit"
+            [disabled]="form.invalid">
+                Add Ledger
+            </button>
+        </div>
+    </form>
+</div>
+

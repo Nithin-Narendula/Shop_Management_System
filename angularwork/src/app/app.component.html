@@ -1,0 +1,61 @@
+<div class="container">
+  <h3 class="d-flex justify-content-center">ET Departmentals</h3>
+  <h5 class="d-flex justify-content-center">Shop Management System</h5>
+
+  <nav class="navbar navbar-expand-sm bg-light navbar-dark justify-content-center">
+    <ul class="navbar-nav ">
+
+      <li class="nav-item">
+        <button class="m-1 btn btn-light btn-outline-primary"
+          (click)="Emp=true;Desg=false;cust=false;cl=false;prod=false;pur=false;supp=false;sl=false;sp=false;sale=false">Employee</button>
+      </li>
+      <li class="nav-item">
+        <button class="m-1 btn btn-light btn-outline-primary"
+          (click)="Desg=true;Emp=false;cust=false;cl=false;prod=false;pur=false;supp=false;sl=false;sp=false;sale=false">Designation</button>
+      </li>
+      <li class="nav-item">
+        <button class="m-1 btn btn-light btn-outline-primary"
+          (click)="Desg=false;Emp=false;cust=true;cl=false;prod=false;pur=false;supp=false;sl=false;sp=false;sale=false">Customer</button>
+      </li>
+      <li class="nav-item">
+        <button class="m-1 btn btn-light btn-outline-primary"
+          (click)="Desg=false;Emp=false;cust=false;cl=true;prod=false;pur=false;supp=false;sl=false;sp=false;sale=false">CustomerLedger</button>
+      </li>
+      <li class="nav-item">
+        <button class="m-1 btn btn-light btn-outline-primary"
+          (click)="Desg=false;Emp=false;cust=false;cl=false;prod=true;pur=false;supp=false;sl=false;sp=false;sale=false">Products</button>
+      </li>
+      <li class="nav-item">
+        <button class="m-1 btn btn-light btn-outline-primary"
+          (click)="Desg=false;Emp=false;cust=false;cl=false;prod=false;pur=true;supp=false;sl=false;sp=false;sale=false">Purchases</button>
+      </li>
+      <li class="nav-item">
+        <button class="m-1 btn btn-light btn-outline-primary"
+          (click)="Desg=false;Emp=false;cust=false;cl=false;prod=false;pur=false;supp=true;sl=false;sp=false;sale=false">Supplier</button>
+      </li>
+      <li class="nav-item">
+        <button class="m-1 btn btn-light btn-outline-primary"
+          (click)="Desg=false;Emp=false;cust=false;cl=false;prod=false;pur=false;supp=false;sl=true;sp=false;sale=false">SupplierLedger</button>
+      </li>
+      <li class="nav-item">
+        <button class="m-1 btn btn-light btn-outline-primary"
+          (click)="Desg=false;Emp=false;cust=false;cl=false;prod=false;pur=false;supp=false;sl=false;sp=true;sale=false">SalesProducts</button>
+      </li>
+      <li class="nav-item">
+        <button class="m-1 btn btn-light btn-outline-primary"
+          (click)="Desg=false;Emp=false;cust=false;cl=false;prod=false;pur=false;supp=false;sl=false;sp=false;sale=true">Sales</button>
+      </li>
+    </ul>
+  </nav>
+  <p id="x"> </p>
+  <app-employee *ngIf="Emp"></app-employee>
+  <app-designation *ngIf="Desg"></app-designation>
+  <app-customer *ngIf="cust"></app-customer>
+  <app-custledg *ngIf="cl"></app-custledg>
+  <app-product *ngIf="prod"></app-product>
+  <app-purchase *ngIf="pur"></app-purchase>
+  <app-supplier *ngIf="supp"></app-supplier>
+  <app-suppledg *ngIf="sl"></app-suppledg>
+  <app-salesproduct *ngIf="sp"></app-salesproduct>
+  <app-sales *ngIf="sale"></app-sales>
+</div>

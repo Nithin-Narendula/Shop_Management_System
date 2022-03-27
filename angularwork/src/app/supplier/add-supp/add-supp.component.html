@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-between">
+    <h4>Add New Product</h4>
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div style="overflow: auto;height:450px;">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">SupplierID</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="supplierId" #supplierId="ngModel" [(ngModel)]="service.formData.SupplierID"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="supplierId.invalid && supplierId.touched">
+            Please Enter SupplierID
+        </div>
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">SupplierCompany</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="supplierCompany" #supplierCompany="ngModel" [(ngModel)]="service.formData.SupplierCompany"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="supplierCompany.invalid && supplierCompany.touched">
+            Please Enter SupplierCompany
+        </div>
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">ContactPerson</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="contactPerson" #contactPerson="ngModel" [(ngModel)]="service.formData.ContactPerson"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="contactPerson.invalid && contactPerson.touched">
+            Please Enter contactPerson
+        </div>
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Phone</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="phone" #phone="ngModel" [(ngModel)]="service.formData.Phone"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="phone.invalid && phone.touched">
+            Please Enter Phone
+        </div>
+        <div>
+            <button class="mt-4" mat-raised-button color="priamry" type="submit"
+            [disabled]="form.invalid">
+                Add Product
+            </button>
+        </div>
+    </form>
+</div>
+

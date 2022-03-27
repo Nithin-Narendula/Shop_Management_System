@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-between m-3" >
+    <h4>Edit Supplier</h4>
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div style="overflow: auto;height:450px;">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        
+       
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">SupplierID</span>
+            </div>
+            <input redonly="readonly" type="text" class="form-control" 
+            name="supplierId" #supplierId="ngModel" [(ngModel)]="service.formData.SupplierID"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="supplierId.invalid && supplierId.touched">
+            Please Enter SupplierID
+        </div>
+
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">SupplierCompany</span>
+            </div>
+            <input redonly="readonly" type="text" class="form-control" 
+            name="supplierCompany" #supplierCompany="ngModel" [(ngModel)]="service.formData.SupplierCompany"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="supplierCompany.invalid && supplierCompany.touched">
+            Please Enter SupplierCompany
+        </div>
+        
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">ContactPerson</span>
+            </div>
+            <input redonly="readonly" type="text" class="form-control" 
+            name="contactPerson" #contactPerson="ngModel" [(ngModel)]="service.formData.ContactPerson"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="contactPerson.invalid && contactPerson.touched">
+            Please Enter ContactPerson
+        </div>
+        
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Phone</span>
+            </div>
+            <input redonly="readonly" type="text" class="form-control" 
+            name="phone" #phone="ngModel" [(ngModel)]="service.formData.Phone"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="phone.invalid && phone.touched">
+            Please Enter Phone Nmber
+        </div>
+        
+        <div>
+            <button class="m-3" mat-raised-button color="priamry" type="submit"
+            [disabled]="form.invalid">
+                Update Supplier
+            </button>
+        </div>
+    </form>
+</div>

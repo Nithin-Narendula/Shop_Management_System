@@ -1,0 +1,41 @@
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter">
+</mat-form-field>
+
+<div style="overflow:auto" >
+    <div class="mat-elevation-z8">
+        <mat-table [dataSource]="listdata" matSort>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+           
+            <ng-container matColumnDef="Options">
+                <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
+                <mat-cell *matCellDef="let row"  >
+                    <button mat-icon-button (click)="onEdit(row)">
+                        <mat-icon>launch</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="onDelete(row.designationName)">
+                        <mat-icon>delete_outline</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="DesignationName" >
+                <mat-header-cell *matHeaderCellDef mat-sort-header>DesignationName</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.designationName}}</mat-header-cell>
+            </ng-container>
+           
+            <ng-container matColumnDef="RoleName">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>RoleName</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.roleName}}</mat-header-cell>
+            </ng-container>
+           
+            <ng-container matColumnDef="Department">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Department</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.department}}</mat-header-cell>
+            </ng-container>
+        </mat-table>
+
+    </div>
+</div>
+<button class="mt-2" mat-raised-button color="primary" (click)="onAdd()">Add Designation</button>

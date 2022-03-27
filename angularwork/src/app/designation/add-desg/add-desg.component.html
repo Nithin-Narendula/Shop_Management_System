@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between">
+    <h4>Add New Designation</h4>
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div style="overflow: auto;height:450px;">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">DesignationName</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="designationName" #designationName="ngModel" [(ngModel)]="service.formData.DesignationName"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="designationName.invalid && designationName.touched">
+            Please Enter Designation Name
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Role Name</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="roleName" #roleName="ngModel" [(ngModel)]="service.formData.RoleName"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="roleName.invalid && roleName.touched">
+            Please Enter Role Name
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Department</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" 
+            name="department" #department="ngModel" [(ngModel)]="service.formData.Department"> 
+        </div>
+        <div class="text-left text-danger" *ngIf="department.invalid && department.touched">
+            Please Enter Department
+        </div>
+        <div>
+            <button class="mt-4" mat-raised-button color="priamry" type="submit"
+            [disabled]="form.invalid">
+                Add Designation
+            </button>
+        </div>
+    </form>
+</div>
+
